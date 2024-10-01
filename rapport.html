@@ -796,10 +796,10 @@
                 <div class="scenario" id="cu-1">
                     <div class="scenario-meta">
                         <h4 class="cu-name">
-                            <strong>CU:</strong> Créer une séance
+                            <strong>CU:</strong> Consulter les travaux en cours ou à venir
                         </h4>
                         <p class="cu-goal">
-                            <strong>Objectif:</strong> Un professionnel souhaite donner une séance d'un service au GYM
+                            <strong>Objectif:</strong> Un résident veut consulter les travaux planifiés ou en cours dans son quartier.
                         </p>
                         
                         <hr>
@@ -807,22 +807,21 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Acteurs</h5>
                             <ul class="bare-list cu-actors">
-                                <li class="cu-actor">Professionnel (Principal)</li>
-                                <li class="cu-actor">Agent (Secondaire)</li>
+                                <li class="cu-actor">Résident (Principal)</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Préconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Le professionnel a un compte et est présent au GYM.</li>
+                                <li class="dash">Le résident est connecté à l'application et a sélectionné son quartier.</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Postconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Aucun</li>
+                                <li class="dash">Le résident a une vue d'ensemble des travaux prévus dans son quartier.</li>
                             </ul>
                         </div>
                         
@@ -834,34 +833,29 @@
                     <div class="scenario-main">
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
-                            <li class="scenario-main-step">Le professionnel se présente à l’accueil et donne son numéro.</li>
-                            <li class="scenario-main-step">L’agent entre le numéro dans le système.</li>
-                            <li class="scenario-main-step">Le système valide le numéro du membre.</li>
-                            <li class="scenario-main-step">Le professionnel indique à l’agent le service qu’il souhaite fournir.</li>
-                            <li class="scenario-main-step">L’agent <a href="#cu-2">consulte le Répertoire des services</a> pour trouver le code de service.</li>
-                            <li class="scenario-main-step">L’agent demande au professionnel le reste des informations requises.</li>
-                            <li class="scenario-main-step">L’agent entre les données dans le système.</li>
-                            <li class="scenario-main-step">Le système affiche les détails de la séance nouvellement créée.</li>
+                            <li class="scenario-main-step">Le résident ouvre l'application MaVille.</li>
+                            <li class="scenario-main-step">Le résident se connecte et accède à la page des travaux en cours ou à venir.</li>
+                            <li class="scenario-main-step">Le résident filtre les travaux par quartier, type de travaux ou par rue.</li>
+                            <li class="scenario-main-step">L'application affiche la liste des travaux correspondant aux filtres choisis.</li>
                         </ol>
 
                         <div class="scenario-alt">
                             <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
                             <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="4">
-                                    Le compte est suspendu.
+                                <li class="scenario-alt-step" value="5">
+                                    Erreur dans le filtrage: Le résident entre des critères qui ne correspondent à aucun projet.
                                     <ol class="bare-list">
-                                        <li value="4">Le système affiche Compte suspendu à l'écran</li>
-                                        <li value="4">Le scénario se termine</li>
+                                        <li value="5">L'application affiche un message indiquant qu'aucun travail ne correspond aux critères choisis.</li>
+                                        <li value="5">Le scénario se termine</li>
                                     </ol>
                                 </li>
                             </ol>
                             <ol class="bare-list scenario-alt-steps">
                                 <li class="scenario-alt-step" value="6">
-                                    Le service souhaité n'est pas offert chez GYM.
+                                    Problème de connexion : Le résident n'est pas connecté à Internet ou l'application ne peut pas récupérer les informations des travaux en cours.
                                     <ol class="bare-list">
-                                        <li value="6">L'agent ne trouve pas le code pour le service demandé.</li>
-                                        <li value="6">L'agent informe le professionnel de la non-disponibilité du service.</li>
-                                        <li value="6">Le scénario se termine.</li>
+                                        <li value="6">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour consulter les travaux.</li>
+                                        <li value="6">Le résident a la possibilité d'essayer à nouveau une fois que la connexion est rétablie.</li>
                                     </ol>
                                 </li>
                             </ol>
@@ -872,10 +866,10 @@
                 <div class="scenario" id="cu-2">
                     <div class="scenario-meta">
                         <h4 class="cu-name">
-                            <strong>CU:</strong> Consulter le répertoire des services
+                            <strong>CU:</strong> Mettre à jour les informations d'un chantier
                         </h4>
                         <p class="cu-goal">
-                            <strong>Objectif:</strong> Obtenir la liste des services et séances offerts et disponibles
+                            <strong>Objectif:</strong> Un intervenant souhaite mettre à jour les informations d'un chantier qu'il a soumis.
                         </p>
                         
                         <hr>
@@ -883,21 +877,21 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Acteurs</h5>
                             <ul class="bare-list cu-actors">
-                                <li class="cu-actor">Agent (Principal)</li>
+                                <li class="cu-actor">Intervenant (Principal)</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Préconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Aucun.</li>
+                                <li class="dash">L'intervenant est authentifié et a un accès valide à l'application.</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Postconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Aucun</li>
+                                <li class="dash">Les informations du chantier sont mises à jour et les résidents concernés sont notifiés des modifications.</li>
                             </ul>
                         </div>
                         
@@ -909,13 +903,37 @@
                     <div class="scenario-main">
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
-                            <li class="scenario-main-step">L’agent ouvre le Répertoire des services.</li>
-                            <li class="scenario-main-step">Le système affiche la liste des services offerts par GYM ainsi que toutes les séances disponibles durant la journée.</li>
+                            <li class="scenario-main-step">L'intervenant se connecte à l'application MaVille.</li>
+                            <li class="scenario-main-step">L'intervenant accède à la liste des chantiers en cours via l'interface utilisateur.</li>
+                            <li class="scenario-main-step">L'intervenant sélectionne un chantier spécifique à mettre à jour.</li>
+                            <li class="scenario-main-step">Le système affiche les détails du chantier sélectionné.</li>
+                            <li class="scenario-main-step">L'intervenant modifie les informations nécessaires (date de début, date de fin, statut, etc.).</li>
+                            <li class="scenario-main-step">L'intervenant valide les changements.</li>
+                            <li class="scenario-main-step">Le système enregistre les mises à jour et envoie des notifications aux résidents concernés par le chantier.</li>
+                            <li class="scenario-main-step">L'intervenant reçoit une confirmation que les mises à jour ont été effectuées avec succès.</li>
                         </ol>
 
                         <div class="scenario-alt">
                             <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
-                            <p>Aucun</p>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="9">
+                                    Problème de permissions. L'intervenant tente de mettre à jour un chantier auquel il n'a pas les droits d'accès.
+                                    <ol class="bare-list">
+                                        <li value="9">Le système affiche un message d'erreur indiquant que l'intervenant n'a pas les permissions nécessaires pour modifier ce chantier.</li>
+                                        <li value="9">Le scénario se termine</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="10">
+                                    Le système rencontre un problème technique lors de l'enregistrement des modifications.
+                                    <ol class="bare-list">
+                                        <li value="10">Le système affiche un message d'erreur informant l'intervenant que la mise à jour n'a pas pu être effectuée.</li>
+                                        <li value="10">L'intervenant peut réessayer ou contacter le support technique.</li>
+                                        <li value="10">Le scénario se termine</li>
+                                    </ol>
+                                </li>
+                            </ol>
                         </div>
                     </div>
                 </div>
