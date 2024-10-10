@@ -796,10 +796,10 @@
                 <div class="scenario" id="cu-1">
                     <div class="scenario-meta">
                         <h4 class="cu-name">
-                            <strong>CU:</strong> Consulter les travaux en cours ou à venir
+                            <strong>CU:</strong> S'inscrire comme résident
                         </h4>
                         <p class="cu-goal">
-                            <strong>Objectif:</strong> Un résident veut consulter les travaux planifiés ou en cours dans son quartier.
+                            <strong>Objectif:</strong> Un nouvel utilisateur souhaite s'inscrire comme résident sur l'application MaVille.
                         </p>
                         
                         <hr>
@@ -814,14 +814,90 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Préconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Le résident est connecté à l'application et a sélectionné son quartier.</li>
+                                <li class="dash">L'utilisateur n'a pas de compte existant sur l'application.</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Postconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Le résident a une vue d'ensemble des travaux prévus dans son quartier.</li>
+                                <li class="dash">L'utilisateur est inscrit et possède un compte valide.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">L'utilisateur ouvre l'application MaVille.</li>
+                            <li class="scenario-main-step">L'utilisateur clique sur "S'inscrire".</li>
+                            <li class="scenario-main-step">Le système demande des informations personnelles telles que le nom, l'adresse, le courriel et la création d'un mot de passe.</li>
+                            <li class="scenario-main-step">L'utilisateur entre les informations requises.</li>
+                            <li class="scenario-main-step">Le système enregistre les informations et crée un compte pour l'utilisateur.</li>
+                            <li class="scenario-main-step">Le système envoie un courriel de confirmation pour valider l'adresse courriel.</li>
+                            <li class="scenario-main-step">L'utilisateur valide son adresse en cliquant sur le lien dans le courriel de confirmation.</li>
+                            <li class="scenario-main-step">Le système confirme que l'inscription a été effectuée avec succès et redirige l'utilisateur vers la page de connexion.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="9">
+                                    Le courriel est déjà utilisé
+                                    <ol class="bare-list">
+                                        <li value="9">L'utilisateur entre une adresse courriel déjà utilisée pour un autre compte.</li>
+                                        <li value="9"> Le système affiche un message d'erreur indiquant que cette adresse courriel est déjà associée à un autre compte.</li>
+                                        <li value="9"> L'utilisateur peut soit réessayer avec une nouvelle adresse, soit tenter de récupérer son mot de passe.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="10">
+                                    Problème de validation du courriel
+                                    <ol class="bare-list">
+                                        <li value="10">L'utilisateur ne reçoit pas le courriel de validation.</li>
+                                        <li value="10">Le système permet à l'utilisateur de renvoyer un autre courriel de validation.</li>
+                                        <li value="10">Le scénario continue une fois l'utilisateur validé.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> Rechercher des travaux
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Un résident souhaite rechercher des travaux spécifiques dans son quartier.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Résident (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le résident est connecté à l'application MaVille et a sélectionné son quartier.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le résident obtient la liste des travaux correspondant aux critères de recherche choisis.</li>
                             </ul>
                         </div>
                         
@@ -834,16 +910,16 @@
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
                             <li class="scenario-main-step">Le résident ouvre l'application MaVille.</li>
-                            <li class="scenario-main-step">Le résident se connecte et accède à la page des travaux en cours ou à venir.</li>
-                            <li class="scenario-main-step">Le résident filtre les travaux par quartier, type de travaux ou par rue.</li>
-                            <li class="scenario-main-step">L'application affiche la liste des travaux correspondant aux filtres choisis.</li>
+                            <li class="scenario-main-step">Le résident se connecte et accède à la page de recherche des travaux.</li>
+                            <li class="scenario-main-step">Le résident entre les critères de recherche tels que la date, le type de travaux, ou la rue.</li>
+                            <li class="scenario-main-step">L'application affiche la liste des travaux correspondant aux critères choisis.</li>
                         </ol>
 
                         <div class="scenario-alt">
                             <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
                             <ol class="bare-list scenario-alt-steps">
                                 <li class="scenario-alt-step" value="5">
-                                    Erreur dans le filtrage: Le résident entre des critères qui ne correspondent à aucun projet.
+                                    Aucun travail correspondant aux critères
                                     <ol class="bare-list">
                                         <li value="5">L'application affiche un message indiquant qu'aucun travail ne correspond aux critères choisis.</li>
                                         <li value="5">Le scénario se termine</li>
@@ -852,9 +928,9 @@
                             </ol>
                             <ol class="bare-list scenario-alt-steps">
                                 <li class="scenario-alt-step" value="6">
-                                    Problème de connexion : Le résident n'est pas connecté à Internet ou l'application ne peut pas récupérer les informations des travaux en cours.
+                                    Le résident n'est pas connecté à Internet ou l'application ne peut pas récupérer les informations nécessaires.
                                     <ol class="bare-list">
-                                        <li value="6">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour consulter les travaux.</li>
+                                        <li value="6">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour rechercher les travaux.</li>
                                         <li value="6">Le résident a la possibilité d'essayer à nouveau une fois que la connexion est rétablie.</li>
                                     </ol>
                                 </li>
@@ -863,13 +939,314 @@
                     </div>
                 </div>
 
-                <div class="scenario" id="cu-2">
+                <div class="scenario" id="cu-1">
                     <div class="scenario-meta">
                         <h4 class="cu-name">
-                            <strong>CU:</strong> Mettre à jour les informations d'un chantier
+                            <strong>CU:</strong> Recevoir des notifications personnalisées
                         </h4>
                         <p class="cu-goal">
-                            <strong>Objectif:</strong> Un intervenant souhaite mettre à jour les informations d'un chantier qu'il a soumis.
+                            <strong>Objectif:</strong> Un résident souhaite recevoir des notifications sur les travaux qui l'intéressent dans son quartier.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Résident (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le résident est connecté à l'application MaVille.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le résident reçoit des notifications personnalisées en fonction de ses préférences de travaux.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">Le résident ouvre l'application MaVille.</li>
+                            <li class="scenario-main-step">Le résident se connecte et accède à la section des paramètres de notifications.</li>
+                            <li class="scenario-main-step">Le résident sélectionne les types de travaux et les paramètres de notification (plages horaires, types de travaux, etc.).</li>
+                            <li class="scenario-main-step">Le résident enregistre ses préférences.</li>
+                            <li class="scenario-main-step">L'application envoie des notifications personnalisées au résident en fonction de ses critères choisis lorsque des travaux sont planifiés ou en cours dans son quartier.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="6">
+                                    Problème de connexion
+                                    <ol class="bare-list">
+                                        <li value="6">Le résident n'est pas connecté à Internet ou l'application ne peut pas récupérer ou envoyer les notifications.</li>
+                                        <li value="6">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour recevoir les notifications.</li>
+                                        <li value="6">Le résident a la possibilité de réessayer une fois que la connexion est rétablie.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="7">
+                                    Notifications non reçues
+                                    <ol class="bare-list">
+                                        <li value="7">Le résident n'a pas reçu les notifications malgré les préférences enregistrées.</li>
+                                        <li value="7">L'application affiche un message demandant au résident de vérifier ses paramètres ou de contacter le support technique.</li>
+                                        <li value="7">Le scénario se termine.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> Permettre une planification participative
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Les résidents souhaitent participer à la planification des travaux dans leur quartier en fournissant leurs préférences de plages horaires et en partageant leurs avis après la fin des travaux.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Résident (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le résident est connecté à l'application. </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Les préférences de plages horaires du résident sont prises en compte pour les futurs travaux dans son quartier.</li>
+                                <li class="dash">Le résident peut partager son avis sur les travaux une fois terminés.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">Le résident ouvre l'application MaVille.</li>
+                            <li class="scenario-main-step">Le résident se connecte et accède à la section de Planification participative.</li>
+                            <li class="scenario-main-step">Le résident fournit ses plages horaires préférées pour les travaux dans son quartier.</li>
+                            <li class="scenario-main-step">L'application enregistre les préférences du résident et les ajoute aux données de planification.</li>
+                            <li class="scenario-main-step">Une fois les travaux terminés dans le quartier du résident, l'application invite le résident à partager son avis sur les travaux réalisés.</li>
+                            <li class="scenario-main-step">Le résident partage son avis sur les travaux et l'intervenant.</li>
+                            <li class="scenario-main-step">L'application enregistre l'avis du résident.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="8">
+                                    Problème de connexion
+                                    <ol class="bare-list">
+                                        <li value="8">Le résident n'est pas connecté à Internet lors de la soumission de ses plages horaires ou de son avis.</li>
+                                        <li value="8">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour soumettre les informations.</li>
+                                        <li value="8">Le résident peut réessayer une fois la connexion rétablie.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="9">
+                                    Préférences non enregistrées
+                                    <ol class="bare-list">
+                                        <li value="9">Le système rencontre un problème technique lors de l'enregistrement des plages horaires préférées du résident.</li>
+                                        <li value="9">Un message d'erreur est affiché, et le résident est invité à réessayer ou à contacter le support technique.
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> Soumettre une requête de travail
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Un résident souhaite soumettre une requête de travail concernant des travaux à réaliser dans son quartier.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Résident (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le résident est connecté à l'application. </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">La requête de travail est soumise à la ville et sera prise en compte dans la planification des travaux.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">Le résident ouvre l'application MaVille.</li>
+                            <li class="scenario-main-step">Le résident se connecte et accède à la section Soumettre une requête de travail.</li>
+                            <li class="scenario-main-step">Le résident sélectionne le type de travail à réaliser.</li>
+                            <li class="scenario-main-step">Le résident décrit le travail qu'il souhaite voir effectué.</li>
+                            <li class="scenario-main-step">Le résident choisit la date de début espérée pour les travaux.</li>
+                            <li class="scenario-main-step">Le résident soumet la requête.</li>
+                            <li class="scenario-main-step">L'application confirme que la requête a été soumise avec succès.</li>
+                            <li class="scenario-main-step">La ville reçoit la requête et l'ajoute à la liste des travaux à planifier.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="9">
+                                    Problème de connexion
+                                    <ol class="bare-list">
+                                        <li value="9">Le résident n'est pas connecté à Internet lors de la soumission de la requête.</li>
+                                        <li value="9">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour soumettre la requête.</li>
+                                        <li value="9">Le résident peut réessayer une fois la connexion rétablie.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="10">
+                                    Données incomplètes
+                                    <ol class="bare-list">
+                                        <li value="10">Le résident n'a pas complété tous les champs requis pour la requête de travail.</li>
+                                        <li value="10">L'application affiche un message d'erreur indiquant quels champs doivent être complétés avant de soumettre la requête.</li>
+                                        <li value="10">Le résident complète les champs manquants et soumet à nouveau la requête.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> Signaler un problème à la ville
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Un résident souhaite signaler un problème dans son quartier.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Résident (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le résident est connecté à l'application.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le problème signalé est envoyé à la ville pour être pris en compte et traité.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">Le résident ouvre l'application MaVille.</li>
+                            <li class="scenario-main-step">Le résident se connecte et accède à la section Signaler un problème à la ville.</li>
+                            <li class="scenario-main-step">Le résident entre ses informations personnelles.</li>
+                            <li class="scenario-main-step">Le résident sélectionne le type de problème à signaler.</li>
+                            <li class="scenario-main-step">Le résident décrit le problème.</li>
+                            <li class="scenario-main-step">Le résident envoit le problème.</li>
+                            <li class="scenario-main-step">L'application confirme la réception du problème. </li>
+                            <li class="scenario-main-step">La ville reçoit la notification du problème pour le traiter.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="9">
+                                    Problème de connexion
+                                    <ol class="bare-list">
+                                        <li value="9">Le résident n'est pas connecté à Internet lors de la soumission du signalement.</li>
+                                        <li value="9">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour signaler le problème.</li>
+                                        <li value="9">Le résident peut réessayer une fois la connexion rétablie.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="10">
+                                    Informations incomplètes
+                                    <ol class="bare-list">
+                                        <li value="10">Le résident n'a pas complété toutes les informations requises (ex. adresse ou description du problème).</li>
+                                        <li value="10"> L'application affiche un message d'erreur indiquant les champs à compléter avant de soumettre le signalement.</li>
+                                        <li value="10">Le résident complète les informations manquantes et soumet à nouveau le signalement.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> S'inscrire comme intervenant
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Un intervenant souhaite s'inscrire à l'application MaVille pour soumettre des projets de travaux ou mettre à jour des informations de chantier.
                         </p>
                         
                         <hr>
@@ -884,14 +1261,90 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Préconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">L'intervenant est authentifié et a un accès valide à l'application.</li>
+                                <li class="dash">L'intervenant a accès à l'application MaVille et souhaite créer un compte.</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Postconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">Les informations du chantier sont mises à jour et les résidents concernés sont notifiés des modifications.</li>
+                                <li class="dash">L'intervenant est inscrit avec succès à l'application et peut soumettre des projets ou des informations de chantier.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">L'intervenant ouvre l'application MaVille.</li>
+                            <li class="scenario-main-step">L'intervenant accède à la page d'inscription.</li>
+                            <li class="scenario-main-step">L'intervenant entre ses informations personnelles</li>
+                            <li class="scenario-main-step">L'intervenant crée un mot de passe sécurisé.</li>
+                            <li class="scenario-main-step">L'intervenant accepte les conditions d'utilisation.</li>
+                            <li class="scenario-main-step">L'application vérifie la validité des informations fournies.</li>
+                            <li class="scenario-main-step">Si les informations sont valides, l'application confirme l'inscription et envoie un courriel de confirmation à l'intervenant.</li>
+                            <li class="scenario-main-step">L'intervenant peut désormais se connecter à l'application et soumettre des projets de travaux.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="9">
+                                    Informations invalides ou manquantes
+                                    <ol class="bare-list">
+                                        <li value="9">L'application détecte que certaines informations sont invalides ou manquantes</li>
+                                        <li value="9">L'application affiche un message d'erreur demandant à l'intervenant de corriger les informations.</li>
+                                        <li value="9">L'intervenant corrige les informations et tente à nouveau de soumettre le formulaire.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="10">
+                                    Problème de connexion
+                                    <ol class="bare-list">
+                                        <li value="10">L'intervenant n'est pas connecté à Internet lors de la tentative d'inscription.</li>
+                                        <li value="10">L'application affiche un message d'erreur indiquant que la connexion est requise pour s'inscrire.</li>
+                                        <li value="10">L'intervenant peut réessayer une fois la connexion rétablie.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> Consulter la liste des requêtes de travail
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Un intervenant souhaite consulter la liste des requêtes de travail soumises par les résidents dans l'application MaVille.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Intervenant (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">L'intervenant est authentifié et a un accès valide à l'application MaVille.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">L'intervenant obtient une vue d'ensemble des requêtes de travail soumises par les résidents.</li>
                             </ul>
                         </div>
                         
@@ -904,33 +1357,32 @@
                         <h5 class="scenario-main-title">Scénario principal</h5>
                         <ol class="scenario-main-steps">
                             <li class="scenario-main-step">L'intervenant se connecte à l'application MaVille.</li>
-                            <li class="scenario-main-step">L'intervenant accède à la liste des chantiers en cours via l'interface utilisateur.</li>
-                            <li class="scenario-main-step">L'intervenant sélectionne un chantier spécifique à mettre à jour.</li>
-                            <li class="scenario-main-step">Le système affiche les détails du chantier sélectionné.</li>
-                            <li class="scenario-main-step">L'intervenant modifie les informations nécessaires (date de début, date de fin, statut, etc.).</li>
-                            <li class="scenario-main-step">L'intervenant valide les changements.</li>
-                            <li class="scenario-main-step">Le système enregistre les mises à jour et envoie des notifications aux résidents concernés par le chantier.</li>
-                            <li class="scenario-main-step">L'intervenant reçoit une confirmation que les mises à jour ont été effectuées avec succès.</li>
+                            <li class="scenario-main-step">L'intervenant accède à l'interface utilisateur où il peut voir les options disponibles.</li>
+                            <li class="scenario-main-step">L'intervenant sélectionne l'option Consulter les requêtes de travail.</li>
+                            <li class="scenario-main-step">L'application affiche une liste de requêtes soumises par les résidents.</li>
+                            <li class="scenario-main-step">L'intervenant peut cliquer sur une requête spécifique pour voir plus de détails.</li>
+                            <li class="scenario-main-step">L'intervenant peut trier ou filtrer les requêtes en fonction de critères tels que la date, l'urgence ou la localisation.</li>
+                            <li class="scenario-main-step">L'intervenant examine la requête et décide s'il souhaite y répondre.</li>
                         </ol>
 
                         <div class="scenario-alt">
                             <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
                             <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="9">
-                                    Problème de permissions. L'intervenant tente de mettre à jour un chantier auquel il n'a pas les droits d'accès.
+                                <li class="scenario-alt-step" value="8">
+                                    Pas de requêtes disponibles
                                     <ol class="bare-list">
-                                        <li value="9">Le système affiche un message d'erreur indiquant que l'intervenant n'a pas les permissions nécessaires pour modifier ce chantier.</li>
-                                        <li value="9">Le scénario se termine</li>
+                                        <li value="8">L'application affiche un message indiquant qu'aucune requête de travail n'est disponible pour le moment.</li>
+                                        <li value="8">L'intervenant est renvoyé à la page principale. </li>
                                     </ol>
                                 </li>
                             </ol>
                             <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="10">
-                                    Le système rencontre un problème technique lors de l'enregistrement des modifications.
+                                <li class="scenario-alt-step" value="9">
+                                    Problème de connexion
                                     <ol class="bare-list">
-                                        <li value="10">Le système affiche un message d'erreur informant l'intervenant que la mise à jour n'a pas pu être effectuée.</li>
-                                        <li value="10">L'intervenant peut réessayer ou contacter le support technique.</li>
-                                        <li value="10">Le scénario se termine</li>
+                                        <li value="9">L'intervenant n'est pas connecté à Internet lors de la tentative de consultation des requêtes.</li>
+                                        <li value="9">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire.</li>
+                                        <li value="9">L'intervenant peut réessayer une fois la connexion rétablie.</li>
                                     </ol>
                                 </li>
                             </ol>
@@ -938,6 +1390,160 @@
                     </div>
                 </div>
 
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> Soumettre un nouveau projet de travaux
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Un intervenant souhaite soumettre un nouveau projet de travaux via l'application MaVille.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Intervenant (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">L'intervenant est authentifié et a un accès valide à l'application MaVille.</li>
+                                <li class="dash">L'intervenant a les autorisations nécessaires pour soumettre un projet.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Le projet de travaux est soumis avec succès et enregistré dans l'application.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">L'intervenant se connecte à l'application MaVille.</li>
+                            <li class="scenario-main-step">L'intervenant accède à l'interface utilisateur et sélectionne l'option Soumettre un projet de travaux.</li>
+                            <li class="scenario-main-step">L'application affiche un formulaire permettant de soumettre un projet de travaux.</li>
+                            <li class="scenario-main-step">L'intervenant remplit les informations requises pour le projet</li>
+                            <li class="scenario-main-step">L'intervenant valide les informations saisies.</li>
+                            <li class="scenario-main-step">L'application vérifie que toutes les informations obligatoires ont été fournies.</li>
+                            <li class="scenario-main-step">L'application soumet le projet et confirme à l'intervenant que le projet a été soumis avec succès.</li>
+                            <li class="scenario-main-step">L'intervenant reçoit une notification de confirmation ainsi qu'un récapitulatif du projet soumis.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="9">
+                                    Informations manquantes ou incorrectes
+                                    <ol class="bare-list">
+                                        <li value="9">L'intervenant oublie de remplir un champ obligatoire ou entre des informations incorrectes (ex: date de fin avant la date de début).</li>
+                                        <li value="9">L'application affiche un message d'erreur spécifiant les champs à corriger.</li>
+                                        <li value="9">L'intervenant corrige les informations et soumet à nouveau.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="10">
+                                    Erreur système lors de la soumission
+                                    <ol class="bare-list">
+                                        <li value="10">Un problème technique survient lors de la soumission du projet</li>
+                                        <li value="10">L'application affiche un message d'erreur indiquant que le projet n'a pas pu être soumis.</li>
+                                        <li value="10">L'intervenant peut réessayer plus tard ou contacter le support technique.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scenario" id="cu-1">
+                    <div class="scenario-meta">
+                        <h4 class="cu-name">
+                            <strong>CU:</strong> Mettre à jour les informations d'un chantier
+                        </h4>
+                        <p class="cu-goal">
+                            <strong>Objectif:</strong> Un intervenant souhaite mettre à jour les informations d'un chantier en cours dans l'application MaVille.
+                        </p>
+                        
+                        <hr>
+
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Acteurs</h5>
+                            <ul class="bare-list cu-actors">
+                                <li class="cu-actor">Intervenant (Principal)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Préconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">L'intervenant est authentifié et a un accès valide à l'application MaVille.</li>
+                                <li class="dash">Un chantier est déjà créé et en cours dans le système.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part">
+                            <h5 class="cu-part-title">Postconditions</h5>
+                            <ul class="bare-list cu-conditions">
+                                <li class="dash">Les informations du chantier sont mises à jour avec succès.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cu-part cu-part--notes">
+                            <h5 class="cu-part-title">Notes</h5>
+                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
+                        </div>
+                    </div>
+                    <div class="scenario-main">
+                        <h5 class="scenario-main-title">Scénario principal</h5>
+                        <ol class="scenario-main-steps">
+                            <li class="scenario-main-step">L'intervenant se connecte à l'application MaVille.</li>
+                            <li class="scenario-main-step">L'intervenant accède à l'interface utilisateur et sélectionne l'option Mettre à jour les informations d'un chantier.</li>
+                            <li class="scenario-main-step">L'application affiche une liste des chantiers en cours dont l'intervenant est responsable.</li>
+                            <li class="scenario-main-step">L'intervenant sélectionne le chantier à mettre à jour.</li>
+                            <li class="scenario-main-step">L'intervenant modifie les informations pertinentes</li>
+                            <li class="scenario-main-step">L'intervenant valide les modifications.</li>
+                            <li class="scenario-main-step">L'application vérifie que toutes les informations sont complètes et correctes.</li>
+                            <li class="scenario-main-step">L'application enregistre les modifications et informe l'intervenant que les informations du chantier ont été mises à jour avec succès.</li>
+                            <li class="scenario-main-step">Les résidents concernés reçoivent une notification concernant la mise à jour du chantier.</li>
+                        </ol>
+
+                        <div class="scenario-alt">
+                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="10">
+                                    Informations manquantes ou incorrectes
+                                    <ol class="bare-list">
+                                        <li value="10">L'intervenant oublie de remplir un champ obligatoire ou entre des informations incorrectes</li>
+                                        <li value="10">L'application affiche un message d'erreur spécifiant les champs à corriger.</li>
+                                        <li value="10"> L'intervenant corrige les informations et valide à nouveau.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <ol class="bare-list scenario-alt-steps">
+                                <li class="scenario-alt-step" value="11">
+                                    Erreur système lors de la mise à jour
+                                    <ol class="bare-list">
+                                        <li value="11"> Un problème technique survient lors de la tentative de mise à jour des informations.</li>
+                                        <li value="11">L'application affiche un message d'erreur indiquant que la mise à jour a échoué.</li>
+                                        <li value="11">L'intervenant peut réessayer plus tard ou contacter le support technique.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
                   
                 <h3 class="subsection-title">Diagramme d'activités</h3>
                 <div class="activity">
