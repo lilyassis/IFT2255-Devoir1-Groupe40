@@ -1117,6 +1117,7 @@
                             <h5 class="cu-part-title">Acteurs</h5>
                             <ul class="bare-list cu-actors">
                                 <li class="cu-actor">Résident (Principal)</li>
+                                <li class="cu-actor">La ville (Secondaire)</li>
                             </ul>
                         </div>
                         
@@ -1130,7 +1131,7 @@
                         <div class="cu-part">
                             <h5 class="cu-part-title">Postconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">La requête de travail est soumise à la ville et sera prise en compte dans la planification des travaux.</li>
+                                <li class="dash">La requête de travail est soumise à la ville qui l'ajoute à une liste des travaux à planifier que les intervenants peuvent voir.</li>
                             </ul>
                         </div>
                         
@@ -1193,6 +1194,7 @@
                             <h5 class="cu-part-title">Acteurs</h5>
                             <ul class="bare-list cu-actors">
                                 <li class="cu-actor">Résident (Principal)</li>
+                                <li class="cu-actor">La ville (Secondaire)</li>
                             </ul>
                         </div>
                         
@@ -1269,13 +1271,14 @@
                             <h5 class="cu-part-title">Acteurs</h5>
                             <ul class="bare-list cu-actors">
                                 <li class="cu-actor">Intervenant (Principal)</li>
+                                <li class="cu-actor">La ville (Secondaire)</li>
                             </ul>
                         </div>
                         
                         <div class="cu-part">
                             <h5 class="cu-part-title">Préconditions</h5>
                             <ul class="bare-list cu-conditions">
-                                <li class="dash">L'intervenant a accès à l'application MaVille et souhaite créer un compte.</li>
+                                <li class="dash">L'intervenant est enregistré auprès de la ville. </li>
                             </ul>
                         </div>
                         
@@ -1296,8 +1299,17 @@
                         <ol class="scenario-main-steps">
                             <li class="scenario-main-step">L'intervenant ouvre l'application MaVille.</li>
                             <li class="scenario-main-step">L'intervenant accède à la page d'inscription.</li>
-                            <li class="scenario-main-step">L'intervenant entre ses informations personnelles</li>
+                            <li class="scenario-main-step">L'intervenant entre ses informations personnelles dont son nom complet, son adresse courriel
+–>
+Mot de passe: Utilisé pour se connecter
+–>
+Type: Entreprise public, Entrepreneur privé, Particulier
+–>
+Identifiant de la ville (code à 8 chiffres)
+                            </li>
                             <li class="scenario-main-step">L'intervenant crée un mot de passe sécurisé.</li>
+                            <li class="scenario-main-step">L'intervenant indique le type de son entreprise.</li>
+                            <li class="scenario-main-step">L'intervenant indique son identifiant de la ville.</li>
                             <li class="scenario-main-step">L'intervenant accepte les conditions d'utilisation.</li>
                             <li class="scenario-main-step">L'application vérifie la validité des informations fournies.</li>
                             <li class="scenario-main-step">Si les informations sont valides, l'application confirme l'inscription et envoie un courriel de confirmation à l'intervenant.</li>
