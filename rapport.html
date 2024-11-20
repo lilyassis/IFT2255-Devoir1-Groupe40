@@ -1620,6 +1620,20 @@ Identifiant de la ville (code à 8 chiffres)
                 <div class="activity">
                     <img class="activity-diagram" src="diagrammes/DiagrammeDeClasse.svg" alt="Diagramme de classe" >
                 </div>
+
+                <h3 class="subsection-title">Diagrammes de séquence</h3>
+                <div class="activity">
+                    <h4>Diagramme de séquence lorsque le résident souhaite consulter les entraves</h4>
+                    <img class="activity-diagram" src="" alt="">
+                </div>
+                <div class="activity">
+                    <h4>Diagramme de séquence lorsque le résident souhaite soumettre une requête de travail</h4>
+                    <img class="activity-diagram" src="" alt="">
+                </div>
+                <div class="activity">
+                    <h4>Diagramme de séquence lorsque l'intervenant souhaite consulter la liste de requêtes de travail</h4>
+                    <img class="activity-diagram" src="" alt="">
+                </div>
                 
             </section>
 
@@ -1638,9 +1652,9 @@ Identifiant de la ville (code à 8 chiffres)
                         Justification : il faut une bonne sécurisation du site, car les résidents vont mettre leurs adresses, numéros de téléphone et autres informations personnelles <br>
                         Solution: Masquer les informations personnelles / mettre en place des mesures de sécurité (connexion protégée)</li>
                         <li>Mise à jour du site lente <br>
-                        Justification : si les mises à jour sont trop lentes (ex. Intervenants prennent trop de temps pour mettre des nouvelles informations), les utilisateurs pourraient être moins motivés à utiliser le site<br>
+                        Justification : si les mises à jours du site par les intervenants sont lentes, les informations du site seront expirées, incomplètes et/ou incorrectes, ce qui entraînerait une démotivation/inconfiance côté utilisateur afin d’utiliser le site.<br>
                         Solution: Mettre en place une alarme intégrée dans l’application si un intervenant ne met pas à jour les échéanciers</li>
-                        <li>Système de contrôle <br>
+                        <li>Modération du site <br>
                         Justification : s’il n’y a pas de vérification ou contrôle des posts des usagers, il pourrait y avoir des posts/demandes irrélevantes aux travaux (ex. Vulgarités) <br>
                         Solution : implémenter un algorithme qui filtre/censure certaines requêtes lorsqu’il y en a besoin</li>
                         <li>Perdre toutes les données des utilisateurs <br>
@@ -1653,15 +1667,15 @@ Identifiant de la ville (code à 8 chiffres)
                     <h3 class="subsection-title">Besoins non-fonctionnelles</h3>
                     <ol class="nf-requirements">
                         <li>Accessibilité facile <br>
-                        Justification : application doit être facile d’accès, avec une utilisation intuitive et inclusive pour tous les résidents (ex. handicapés)</li>
+                        Justification : application doit être facile d’accès, avec une utilisation intuitive et inclusive pour tous les résidents (ex. handicapés). Site doit être facile à naviguer sans porter à confusion.</li>
                         <li>Fiabilité <br>
-                        Justification : site doit être disponible à 99,9% du temps</li>
+                        Justification : service de notifications du site est ouvert toute la journée (24h/7) et serveurs sont surveillés en tout temps afin d’assurer que le service est disponible en tout temps</li>
                         <li>Support <br>
-                        Justification : Au besoin, les résidents et intervenants peuvent contacter une équipe de support disponible</li>
+                        Justification : en cas de besoin, les utilisateurs peuvent contacter une équipe de support s’ils font face à certains problèmes. Par exemple, s’ils ne savent pas où se trouve une information, ou s’il ne savent pas comment déposer une demande, ils peuvent contacter l’équipe pour s’informer.</li>
                         <li>Esthétisme <br>
-                        Justification : personnalisation de la page d’accueil, esthétique du site, etc.</li>
+                        Justification : pour ceux qui veulent un look différent du site, par exemples s’il veulent une option dark mode, ou si l’utilisateur est daltonien, il y a plusieurs couleurs d’interface disponible.</li>
                         <li>Performance <br>
-                        Justification : site fonctionne et charge rapidement, pour améliorer l’expérience utilisateur</li>
+                        Justification : site devrait charger rapidement, avec un temps d’attente de 0.1 secondes, afin que les utilisateurs ne se découragent pas de l’utilisation du site et que l’expérience utilisateur reste bonne.</li>
                     </ol>
                 </div>
                 
@@ -1669,7 +1683,7 @@ Identifiant de la ville (code à 8 chiffres)
                     <h3 class="subsection-title">Besoins matériels</h3>
                     <p>
                         <em>Déterminer le nombre de serveurs requis, pour redondance (si un des serveurs ne fonctionne plus), afin de stocker les informations, qui sont assez rapides/puissants pour plusieurs connexions simultanée et une bonne performance.<br>
-                            Une connexion internet rapide (réseaux) est aussi essentielle.</em>
+                            Une connexion internet rapide (réseaux) est aussi essentielle. Comme un serveur coûte environ de 95$ à 360$ par mois, il faudra planifier un budget afin de soutenir ce coût si on estime avoir besoin de un ou plusieurs serveurs.</em>
                     </p>
                 </div>
 
@@ -1677,7 +1691,8 @@ Identifiant de la ville (code à 8 chiffres)
                     <h3 class="subsection-title">Solution de stockage</h3>
                     <p>
                         <em>Pour stocker toutes les informations, on utilisera des bases de données situées dans le cloud. <br>
-                            Pour cela, on peut utiliser un des services offerts par différentes compagnies, comme AWS, Google Cloud, et autres.</em>
+                            Pour cela, on peut utiliser un des services offerts par différentes compagnies, comme AWS, Google Cloud, et autres. <br>
+                            Une base de donnée relationnelle serait adéquate afin de stocker les données de manière organisée. L’installation d’un pare-feu pourra fortifier la protection des données, par exemple Cloudfare ou AWS WAF.</em>
                     </p>
                 </div>
 
@@ -1685,7 +1700,7 @@ Identifiant de la ville (code à 8 chiffres)
                     <h3 class="subsection-title">Solution d'intégration</h3>
 
                     <p>
-                        <em>Identifier et utiliser des services AWS (ex. utilisation pare-feu, APIs, mise à jour API)</em>
+                        <em>Identifier et utiliser des services AWS (ex. utilisation pare-feu, APIs, mise à jour API), et Webhooks pour envoyer des notifications en temps réel aux utilisateurs, ou pour recevoir des mises à jour automatiques de la part des partenaires (ville, entreprises).</em>
                     </p>
                 </div>
             </section>
