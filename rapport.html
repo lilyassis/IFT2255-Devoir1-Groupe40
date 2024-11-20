@@ -582,7 +582,7 @@
                 <p class="report-summary">
                     <em>Court résumé du rapport</em> &ndash; Ce livrable se concentre sur le projet de développement de l’application “MaVille”, 
                     qui a pour but d’améliorer  la participation active et la communication entre résidents et intervenants de la ville. 
-                    Elle leur permettra de consulter des travaux, déposer des requêtes, signaler des problèmes, et même de recevoir des notifications. 
+                    Elle leur permettra de consulter des travaux, déposer des requêtes, et même de recevoir des notifications. 
                     Ce rapport contient un aperçu des exigences, une analyse de ceux-ci, ainsi qu’un prototype de l’application.
                 </p>
             </div>
@@ -681,7 +681,7 @@
                         En effet, il ne semble pas y avoir une participation active du côté résident comme du côté intervenant, menant à des embouteillages et fermetures de route. <br>
                         Une amélioration globale du site actuel pour mieux répondre aux exigences des clients et intervenants est donc cruciale. <br>
                         Par exemple, avoir l’option de s’inscrire comme résident ou intervenant, être capable de rechercher ou consulter des travaux, <br> 
-                        déposer ou consulter des requêtes de travail, recevoir des notifications des projets, mettre à jour des informations, et signaler des problèmes à la ville. <br> 
+                        déposer ou consulter des requêtes de travail, recevoir des notifications des projets et mettre à jour des informations. <br> 
                         En résumé, une expérience plus participative.
                     </em>
                 </p>
@@ -715,7 +715,7 @@
                     <dd class="glossary-def">Personne ou entreprise chargée de réaliser des travaux publics. Les intervenants peuvent soumettre des nouveaux projets et mettre à jour des projects en cours.</dd>
                     
                     <dt class="glossary-term">Résident</dt>
-                    <dd class="glossary-def">Citoyen qui utilise l'application pour consulter les travaux, soumettre des requêtes ou signaler des problèmes dans sa ville.</dd>
+                    <dd class="glossary-def">Citoyen qui utilise l'application pour consulter les travaux ou soumettre des requêtes.</dd>
                     
                     <dt class="glossary-term">Notification personnalisée</dt>
                     <dd class="glossary-def">Message envoyé aux résidents pour les aviser des travaux.</dd>
@@ -810,7 +810,7 @@
                         <em>
                             <strong>NOTES À PROPOS DU DIAGRAMME</strong> <br>
                             <strong>Acteurs principaux:</strong> Les résidents et les intervenants utilisent l'application. <br>
-                            <strong>Acteur secondaire: </strong>La ville reçoit et traite les problèmes signalés et doit enregistrer les intervenants avant leur inscription. <br>
+                            <strong>Acteur secondaire: </strong>La ville doit enregistrer les intervenants avant leur inscription. <br>
                             <strong>Choix des relations:</strong> <br>
                             <strong>1. Généralisation:</strong> Le résident et l'intervenant sont une généralisation d'un utilisateur car ils peuvent faire ce que l'utilisateur fait et plus. <br>
                             <strong>2. La relation include</strong> <br>
@@ -1191,83 +1191,6 @@
                                         <li value="10">Le résident n'a pas complété tous les champs requis pour la requête de travail.</li>
                                         <li value="10">L'application affiche un message d'erreur indiquant quels champs doivent être complétés avant de soumettre la requête.</li>
                                         <li value="10">Le résident complète les champs manquants et soumet à nouveau la requête.</li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="scenario" id="cu-1">
-                    <div class="scenario-meta">
-                        <h4 class="cu-name">
-                            <strong>CU:</strong> Signaler un problème à la ville
-                        </h4>
-                        <p class="cu-goal">
-                            <strong>Objectif:</strong> Un résident souhaite signaler un problème dans son quartier.
-                        </p>
-                        
-                        <hr>
-
-                        <div class="cu-part">
-                            <h5 class="cu-part-title">Acteurs</h5>
-                            <ul class="bare-list cu-actors">
-                                <li class="cu-actor">Résident (Principal)</li>
-                                <li class="cu-actor">La ville (Secondaire)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="cu-part">
-                            <h5 class="cu-part-title">Préconditions</h5>
-                            <ul class="bare-list cu-conditions">
-                                <li class="dash">Le résident est connecté à l'application.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="cu-part">
-                            <h5 class="cu-part-title">Postconditions</h5>
-                            <ul class="bare-list cu-conditions">
-                                <li class="dash">Le problème signalé est envoyé à la ville pour être pris en compte et traité.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="cu-part cu-part--notes">
-                            <h5 class="cu-part-title">Notes</h5>
-                            <p class="cu-notes">Notes additionnelles et hypothèses</p>
-                        </div>
-                    </div>
-                    <div class="scenario-main">
-                        <h5 class="scenario-main-title">Scénario principal</h5>
-                        <ol class="scenario-main-steps">
-                            <li class="scenario-main-step">Le résident ouvre l'application MaVille.</li>
-                            <li class="scenario-main-step">Le résident se connecte et accède à la section Signaler un problème à la ville.</li>
-                            <li class="scenario-main-step">Le résident entre ses informations personnelles.</li>
-                            <li class="scenario-main-step">Le résident sélectionne le type de problème à signaler.</li>
-                            <li class="scenario-main-step">Le résident décrit le problème.</li>
-                            <li class="scenario-main-step">Le résident envoit le problème.</li>
-                            <li class="scenario-main-step">L'application confirme la réception du problème. </li>
-                            <li class="scenario-main-step">La ville reçoit la notification du problème pour le traiter.</li>
-                        </ol>
-
-                        <div class="scenario-alt">
-                            <h5 class="scenario-alt-title">Scénarios alternatifs</h5>
-                            <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="9">
-                                    Problème de connexion
-                                    <ol class="bare-list">
-                                        <li value="9">Le résident n'est pas connecté à Internet lors de la soumission du signalement.</li>
-                                        <li value="9">L'application affiche un message d'erreur indiquant que la connexion à Internet est nécessaire pour signaler le problème.</li>
-                                        <li value="9">Le résident peut réessayer une fois la connexion rétablie.</li>
-                                    </ol>
-                                </li>
-                            </ol>
-                            <ol class="bare-list scenario-alt-steps">
-                                <li class="scenario-alt-step" value="10">
-                                    Informations incomplètes
-                                    <ol class="bare-list">
-                                        <li value="10">Le résident n'a pas complété toutes les informations requises (ex. adresse ou description du problème).</li>
-                                        <li value="10"> L'application affiche un message d'erreur indiquant les champs à compléter avant de soumettre le signalement.</li>
-                                        <li value="10">Le résident complète les informations manquantes et soumet à nouveau le signalement.</li>
                                     </ol>
                                 </li>
                             </ol>
