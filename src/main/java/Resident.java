@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.Nullable;
-
 import java.util.List;
 
 public class Resident {
@@ -9,7 +7,6 @@ public class Resident {
     String DateDeNaissance;
     String Telephone;
     String AdresseResidentiel;
-    @Nullable
     Requete Requete;
 
     public Resident(String Nom,String DateDeNaissance,String AdresseCourriel,String MotDePasse,String Telephone,String AdresseResidentiel){
@@ -157,7 +154,7 @@ public class Resident {
         Requete = requete;
     }
 
-    public @Nullable Requete getRequete() {
+    public Requete getRequete() {
         return Requete;
     }
 
