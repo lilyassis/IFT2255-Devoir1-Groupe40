@@ -4,9 +4,9 @@
 
 - Il manque le nouveau CU "Consulter les entraves"
 
-## Analyse
+## Architecture
 
-- Analyse absente.
+- Architecture absente.
 
 ## Diagramme de classes
 
