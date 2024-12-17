@@ -1,23 +1,43 @@
-public class Requete {
-    private String TitreDuTravail, Description, TypeDeTravaux, DateDeDébut;
-    private Boolean EtatDeRequete;
+import org.jetbrains.annotations.Nullable;
 
-    public Requete(String titreDuTravail, String description, String typeDeTravaux, String dateDeDébut, Boolean etatDeRequete) {
+public class Requete {
+    private Resident proprietaire;
+    private String TitreDuTravail, Description, DateDeDébut;
+    private WorkType TypeDeTravaux;
+    private Boolean Open;
+    @Nullable
+    private Candidature candidature;
+
+
+    public Requete(Resident proprietaire, String titreDuTravail, String description, String dateDeDébut, WorkType typeDeTravaux, Boolean open) {
+        this.proprietaire = proprietaire;
         TitreDuTravail = titreDuTravail;
         Description = description;
-        TypeDeTravaux = typeDeTravaux;
         DateDeDébut = dateDeDébut;
-        EtatDeRequete = etatDeRequete;
+        TypeDeTravaux = typeDeTravaux;
+        Open = open;
+    }
+
+    public String getTitreDuTravail() {
+        return TitreDuTravail;
+    }
+
+    public void setCandidature(@Nullable Candidature candidature) {
+        this.candidature = candidature;
+    }
+
+    public Resident getProprietaire() {
+        return proprietaire;
     }
 
     @Override
     public String toString() {
-        return
-                " Titre du travail a réaliser = " + TitreDuTravail + '\n' +
-                " Description détaillée = " + Description + '\n' +
-                " Type de travaux = " + TypeDeTravaux + '\n' +
-                " Date de début espéré = " + DateDeDébut + '\n' +
-                " Etat de la requete (Ouverte = true) = " + EtatDeRequete +
-                '\n';
+        return "Requete{" +
+                "TitreDuTravail='" + TitreDuTravail + '\'' +
+                ", Description='" + Description + '\'' +
+                ", DateDeDébut='" + DateDeDébut + '\'' +
+                ", TypeDeTravaux=" + TypeDeTravaux +
+                ", Open=" + Open +
+                '}';
     }
 }

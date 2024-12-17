@@ -4,6 +4,9 @@ public class Travail {
 
     @Expose private String id,boroughid,currentstatus,reason_category,submittercategory,organizationname;
 
+    public String getBoroughid() {
+        return boroughid;
+    }
 
     @Override
     public String toString() {
