@@ -29,32 +29,22 @@ Intervenant:
 7. Modifier le statut d'un projet
 
 ## Organisation des fichiers du répertoire
-Le répertoire est organisé comme suit : le dossier diagrammes contient tous les schémas 
-requis pour le rapport (cas d'utilisation, diagrammes d'activités, etc.), le dossier src 
-contient le prototype de l'application avec le code source dans main/java et les fichiers 
-de test dans test/java, et le fichier rapport.html représente le rapport final du projet. 
+Le répertoire est organisé comme suit : le dossier diagrammes contient tous les diagrammes 
+UML, le dossier src contient le prototype de l'application avec le code source dans main/java
+et les fichiers de test dans test/java, et le fichier rapport.html représente le rapport 
+final du projet. 
 
 ## Description des données incluses dans l'application
-L'application est initialisée avec 5 résidents, dont deux habitent dans le même quartier, 
-5 intervenants aux types variés, 5 requêtes de travail, incluant deux avec des candidatures, 
-et 5 projets, dont au moins un prévu dans les trois prochains mois. Les données proviennent 
-des APIs publiques de Montréal, notamment la liste des travaux en cours et la liste des entraves 
-causées par les travaux.
+Les données comprennent des profils d'utilisateurs (résidents et intervenants), des détails 
+de projets et de requêtes de travaux, ainsi que des informations sur les entraves causées 
+par les travaux.
 
 ## Instructions pour installer le projet complet 
-Pour installer le projet, il est nécessaire d'avoir Java 17 ou une version ultérieure, 
-Maven pour la gestion des dépendances et un IDE tel qu'IntelliJ IDEA. Les étapes d'installation 
-sont les suivantes : commencez par cloner le dépôt GitHub avec la commande git clone suivie du 
-chemin du projet, puis déplacez-vous dans le répertoire avec cd. Ensuite, compilez le projet en 
-utilisant Maven avec la commande mvn clean install, et enfin, importez le projet dans votre IDE 
-pour le développement ou l'exécution.
+Pour installer MaVille, assurez-vous que Java JDK 11+ et Maven sont installés. Clonez le dépôt avec git clone, naviguez dans le répertoire du projet, et exécutez "mvn clean install" pour compiler le projet et installer les dépendances.
 
 ## Instructions pour exécuter l'application
-Pour exécuter l'application, ouvrez votre IDE et lancez la méthode runApplication() située dans 
-la classe Main. Une interface en ligne de commande s'affichera pour permettre aux utilisateurs 
-d'interagir directement avec l'application et de naviguer dans les différentes fonctionnalités 
-offertes.
+Après l'installation, pour lancer MaVille, ouvrez un terminal dans le répertoire racine et exécutez "java -jar target/MaVille.jar". Cela démarrera l'application et vous permettra d'accéder à ses fonctionnalités via l'interface en ligne de commande.
 
 ## Instructions pour exécuter les tests
-Pour exécuter les tests unitaires, utilisez Maven avec la commande mvn test, qui lancera 
+Pour exécuter les tests unitaires, utilisez Maven avec la commande "mvn test", qui lancera 
 automatiquement tous les tests configurés dans le projet.
