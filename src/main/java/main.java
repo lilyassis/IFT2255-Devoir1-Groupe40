@@ -1,9 +1,11 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,42 +27,30 @@ public class main {
         ApiResponse ResponseEntraves = api.getData(resourceIdEntraves);
         Gson gson = new Gson();
 
-        List<Projet> projetsAVenir = new ArrayList<Projet>();
-        List<Requete> Requetes = new ArrayList<Requete>(); // Liste de Requetes
-        List<Object> Users = new ArrayList<>(); // Liste de usagers
-        Travaux travaux = gson.fromJson(ResponseTravaux.getBody(),Travaux.class);
-        ArrayList<Travail> ListeDeTravaux = travaux.getResult().getRecords();
-        Entraves entraves = gson.fromJson(ResponseEntraves.getBody(),Entraves.class);
-        ArrayList<Entrave> ListeDeEntraves = entraves.getResult().getRecords();
+        DatabaseController database = new DatabaseController(null,null,null,null,null,null);
 
-        DatabaseController database = new DatabaseController(Users,projetsAVenir,Requetes,ListeDeTravaux,ListeDeEntraves);
-      /*  // 3 requetes
-        Requete requete1 = new Requete("Construction d'un immeuble résidentiel de 8 étages","Cette construction est un immeuble résidentiel de 8 étages situé dans un quartier central d'une grande ville. Il comprend des appartements modernes allant de 40 à 90 m², avec des commerces (boulangerie, pharmacie, café) au rez-de-chaussée.","Construction","2022-03-04",true);
-        Requete requete2 = new Requete("Construction d'un centre commercial de trois niveaux","Il s'agit d'un centre commercial moderne de trois niveaux, situé en périphérie d'une ville en expansion. Le bâtiment offre une large gamme de commerces, de restaurants, de cinémas et d'espaces de loisirs","Construction","2023-07-12",true);
-        Requete requete3 = new Requete("Rénovation d'un entrepôt en espace mixte","transformation d’un ancien bâtiment industriel en un espace polyvalent comprenant des bureaux, des appartements et des commerces","Rénovation","2023-01-23",false);
-        Requetes.add(requete1);
-        Requetes.add(requete2);
-        Requetes.add(requete3);
-*/      DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
-        // 3 Residents
-        Resident Bob = new Resident("bob", "bob@gmail.com", "123", df.parse("2003/12/4"),  "2900 Edouard Montpetit Blvd");
-        Resident Sophie = new Resident("Sophie", "sophie@gmail.com", "123", df.parse("2003/12/4"),"2900 Edouard Montpetit Blvd");
-        Resident Emma = new Resident("Emma", "emma@gmail.com", "123", df.parse("2003/12/4"),"2900 Edouard Montpetit Blvd");
-        // 3 Intervenants
-       // Intervenant Alice = new Intervenant("alice", "alice@gmail.com", "123","public", 001);
-     //   Intervenant Angie = new Intervenant("angie", "angie@gmail.com", "123","public", 002);
-      //  Intervenant Alex = new Intervenant("alex", "alex@gmail.com", "123","public", 003);
-        // creation des usagers
-        Users.add(Bob);
-     //   Alice.Ajouter(Users);
-    //    Angie.Ajouter(Users);
-      //  Alex.Ajouter(Users);
-        try (Writer writer = new FileWriter("Output.json")) {
-            Gson ggson = new GsonBuilder().create();
-            ggson.toJson(Users, writer);
+        try (FileReader reader = new FileReader("DatabaseController.json")) {
+            database = gson.fromJson(reader, DatabaseController.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        Travaux travaux = gson.fromJson(ResponseTravaux.getBody(),Travaux.class);
+        database.travaux = travaux.getResult().getRecords();
+        Entraves entraves = gson.fromJson(ResponseEntraves.getBody(),Entraves.class);
+        database.entraves = entraves.getResult().getRecords();
+
+        List<Object> Users = new ArrayList<>();
+        for (Resident resident: database.residents){
+            resident.initialiserHoraires();
+            Users.add(resident);
+        }
+        for (Intervenant intervenant:database.intervenants){
+            Users.add(intervenant);
+        }
+
+      DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
 
         String Input;
         String Adresse;
@@ -131,7 +121,7 @@ public class main {
                                             System.out.println("(Jour de la semaine, heure de début, heure de fin)");
                                             String input = scanner.nextLine();
                                             String[] inputs = input.split(",");
-                                            resident.modifierHoraire(JourDeLaSemaine.valueOf(inputs[0].trim().toUpperCase()),inputs[1].trim(),inputs[2].trim());
+                                            resident.modifierHoraire(inputs[0],inputs[1].trim(),inputs[2].trim());
                                         } else if (Input.equals("3")) {
                                             System.out.println("Retour au menu");
                                         } else {
@@ -144,12 +134,21 @@ public class main {
                                         Input = scanner.nextLine().trim();
                                         if(Input.equals("1")){
                                             System.out.println("Veuillez fournir toutes les informations demandées en une ligne dans ce format :");
-                                            System.out.println("(Titre du travail, description détaillée, date de début espéré,type de travaux conforme aux travaux possibles)");
+                                            System.out.println("(Titre du travail, description détaillée, date de début espéré,type de travail conforme aux travaux possibles)");
                                             String input = scanner.nextLine();
                                             String[] inputs = input.split(",");
-                                            Requete requete = new Requete(resident,inputs[0],inputs[1],inputs[2],WorkType.valueOf(inputs[3]),true);
-                                            Requetes.add(requete);
-                                            resident.setRequete(requete);
+                                            if (inputs.length >= 4) {
+                                                try {
+                                                    WorkType type = WorkType.valueOf(inputs[3].trim().toUpperCase());
+                                                    Requete requete = new Requete(resident.nom,inputs[0],inputs[1],inputs[2],type,true);
+                                                    resident.setRequete(requete);
+                                                    database.requetes.add(requete);
+                                                }catch (IllegalArgumentException e) {
+                                                   System.out.println("type de travail n'est pas conforme aux travaux possibles");
+                                                }
+                                            }else {
+                                                System.out.println("Les informations demandées sont incompletes");
+                                            }
                                         }else if(Input.equals("2")){ // a faire
                                             if(resident.getRequete()!= null){
                                                 System.out.println(resident.getRequete());
@@ -181,31 +180,47 @@ public class main {
                                     Input = scanner.nextLine().trim();
 
                                     if ("1".equals(Input)) {
-                                        Input = scanner.nextLine().trim();
-                                        if (Input.equals("1")){
-                                            for(int i = 0; i < Requetes.size(); i++) {
+                                        if (!database.requetes.isEmpty()){
+                                            for(int i = 0; i < database.requetes.size(); i++) {
                                                 System.out.print("Requete " + (i+1) + ":\n" );
-                                                System.out.print(Requetes.get(i));
+                                                System.out.print(database.requetes.get(i) + ":\n");
                                             }
+                                        }else {
+                                            System.out.println("Pas de requetes");
                                         }
                                     }else if ("2".equals(Input)) {
                                         System.out.println("Veuillez fournir toutes les informations demandées en une ligne dans ce format :");
-                                        System.out.println("(titre, description,typeTravaux, dateDebut, dateFin,quartierAffectés)");
+                                        System.out.println("(titre, description,typeTravaux, date de debut ((MM/dd/yyyy), date de fin ((MM/dd/yyyy),quartier Affecté)");
                                         String input = scanner.nextLine();
                                         String[] inputs = input.split(",");
-                                        Quartier quartier = new Quartier(inputs[5],"0000");
-                                        Projet projet = new Projet(inputs[0],inputs[1],TypeTravaux.valueOf(inputs[2]),df.parse(inputs[3].trim()),df.parse(inputs[4].trim()),quartier);
-                                        Intervenant.setProjet(projet);
-                                        database.projets.add(projet);
+                                        if (inputs.length >= 6) {
+                                            try {
+                                                Quartier quartier = new Quartier(inputs[5],"0000");
+                                                Projet projet = new Projet(inputs[0],inputs[1],TypeTravaux.valueOf(inputs[2]),df.parse(inputs[3].trim()),df.parse(inputs[4].trim()),quartier);
+                                                Intervenant.setProjet(projet);
+                                                database.projets.add(projet);
+                                            }catch (IllegalArgumentException e) {
+                                                System.out.println("type de travail n'est pas dans le bon format");
+                                            }catch (ParseException e) {
+                                                System.out.println("Erreur : La date n'est pas dans le format correct (MM/dd/yyyy).");
+                                            }
+                                        }
                                     }else if ("3".equals(Input)) {
+                                        System.out.println(database.projets);
                                         System.out.println("Veuillez fournir le titre du projet a modifier:");
                                         Input = scanner.nextLine().trim();
-                                        System.out.println("Veuillez fournir le nouveau statut:");
-                                        StatutProjet statut = StatutProjet.valueOf(scanner.nextLine().trim());
-                                        for (Projet projet: Intervenant.projets){
-                                            if (Input.equals(projet.getTitre())){
-                                                projet.changerStatut(statut);
+                                        System.out.println("Veuillez fournir le nouveau statut (Prévu,EnCours,Suspendu,Terminé): ");
+                                        try {
+                                            StatutProjet statut = StatutProjet.valueOf(scanner.nextLine().trim());
+                                            for (Projet projet: Intervenant.projets){
+                                                if (Input.equals(projet.getTitre())){
+                                                    projet.changerStatut(statut);
+                                                }else {
+                                                    System.out.println("Projet inexistant ");
+                                                }
                                             }
+                                        } catch (IllegalArgumentException e){
+                                            System.out.println("Statut de projet n'est pas dans le bon format");
                                         }
                                     }else if ("4".equals(Input)) {
                                         System.out.println(database.requetes);
@@ -213,22 +228,25 @@ public class main {
                                         Input = scanner.nextLine().trim();
                                         for (Requete requete : database.requetes){
                                             if (Input.equals(requete.getTitreDuTravail())){
-                                                System.out.println("message pour la candidature(facultatif):");
-                                                String message = scanner.nextLine().trim();
                                                 Candidature candidature = new Candidature(requete);
-                                                requete.setCandidature(candidature);
-                                                // mettre notif
+                                                requete.addCandidature(candidature);
+                                                Intervenant.addCandicature(candidature);
+                                                System.out.println("Votre candidature a ete envoyee!");
                                             }
                                         }
                                     }else if ("5".equals(Input)) {
                                         System.out.println(Intervenant.candidatures);
                                         System.out.println("Veuillez fournir le titre de la requete:");
                                         Input = scanner.nextLine().trim();
+                                        try {
                                         for (Candidature candidature : Intervenant.candidatures){
                                             if (Input.equals(candidature.getRequete().getTitreDuTravail())){
-                                                candidature.getRequete().setCandidature(null);
+                                                candidature.getRequete().removeCandicature(candidature);
+                                                Intervenant.removeCandicature(candidature);
                                                 System.out.println("Votre candidature a ete soustraite!");
                                             }
+                                        }}catch (NullPointerException e){
+                                            System.out.println("pas de candidatures");
                                         }
                                     }else if ("6".equals(Input)) {
                                         continue application;
@@ -252,7 +270,8 @@ public class main {
                         try {
                             // Valider la date
                             java.util.Date dateNaissance = df.parse(inputs[1].trim());
-                            comptes.CreationResident(Users,inputs[0].trim(),inputs[2].trim(),inputs[3].trim(),dateNaissance,inputs[4].trim(),null);
+                            comptes.CreationResident(database.residents,inputs[0].trim(),inputs[2].trim(),inputs[3].trim(),dateNaissance,inputs[4].trim(),null);
+                            Users.add(database.residents.get(database.residents.size()-1));
                         } catch (ParseException e) {
                             System.out.println("Erreur : La date de naissance n'est pas dans le format correct (MM/dd/yyyy).");
                         }
@@ -270,7 +289,8 @@ public class main {
                             System.out.println("Identifiant de la ville fourni est déjà attribué à un autre intervenant, veuillez fournir un autre identifiant :");
                             identifiant = Integer.valueOf(scanner.nextLine().trim());
                         }
-                        comptes.CreationIntervenant(Users,inputs[0].trim(),inputs[2].trim(),inputs[3].trim(),IntervenantType.PARTICULIER,identifiant);
+                        comptes.CreationIntervenant(database.intervenants,inputs[0].trim(),inputs[2].trim(),inputs[3].trim(),IntervenantType.PARTICULIER,identifiant);
+                        Users.add(database.intervenants.get(database.intervenants.size()-1));
                     } else {
                         System.out.println("Erreur : Vous n'avez pas fourni toutes les informations demandées !");
                     }}
@@ -282,7 +302,13 @@ public class main {
             }
         }
         scanner.close();
-
+        Gson gsonn = new GsonBuilder().setPrettyPrinting().create();
+        try (FileWriter writer = new FileWriter("DatabaseController.json")) {
+            gsonn.toJson(database, writer);
+            System.out.println("DatabaseController saved to JSON.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     static boolean VerifierIdentifiantVille(List<Object> Users,int Identifiant) {

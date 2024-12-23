@@ -1,7 +1,7 @@
 import org.jetbrains.annotations.Nullable;
 
 public class Candidature {
-    private Requete requete;
+    transient private Requete requete;
 
     public Candidature(Requete requete) {
         this.requete = requete;

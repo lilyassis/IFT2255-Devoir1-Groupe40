@@ -23,21 +23,22 @@ public class Resident extends User {
         initialiserHoraires();
     }
 
-    private void initialiserHoraires() {
+    public void initialiserHoraires() {
         List<Horaire> horaires = new ArrayList<Horaire>();
         for (JourDeLaSemaine jour : JourDeLaSemaine.values()) {
             Horaire horaire = new Horaire(jour);
             horaires.add(horaire);
+            this.horaires = horaires;
         }
     }
 
-    public void setRequete(Requete requete) {
-        Requete = requete;
+    public void setRequete(@Nullable Requete requete) {
+        this.Requete = requete;
         System.out.println("Votre requête de travail a été soumise");
     }
 
     public @Nullable Requete getRequete() {
-        return Requete;
+        return this.Requete;
     }
 
     public void consulterNotifications(){
@@ -60,15 +61,31 @@ public class Resident extends User {
         notifications.add(notification);
     }
 
-    public void modifierHoraire(JourDeLaSemaine jour, String nouvelleHeureDebut, String nouvelleHeureFin) {
+    public void modifierHoraire(String jour, String nouvelleHeureDebut, String nouvelleHeureFin) {
+        JourDeLaSemaine journee = null;
+        try {
+            journee = JourDeLaSemaine.valueOf(jour.toUpperCase().trim());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Jour non trouvé dans la liste des horaires: " + jour);
+        }
         for (Horaire horaire : horaires) {
-            if (horaire.getJourDeLaSemaine() == jour) {
+            if (horaire.getJourDeLaSemaine() == journee) {
                 horaire.modifierHoraire(nouvelleHeureDebut, nouvelleHeureFin);
                 System.out.println("Horaire modifié pour " + jour + " : de " + nouvelleHeureDebut + " à " + nouvelleHeureFin);
                 return;
             }
         }
-        System.out.println("Jour non trouvé dans la liste des horaires.");
+    }
+
+    @Override
+    public String toString() {
+        return "Resident{" +
+                "dateNaissance=" + dateNaissance +
+                ", Requete=" + Requete +
+                ", adresseRésidentielle='" + adresseRésidentielle + '\'' +
+                ", notifications=" + notifications +
+                ", horaires=" + horaires +
+                '}';
     }
 
     public List<Horaire> getHoraires() {

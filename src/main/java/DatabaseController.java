@@ -1,14 +1,24 @@
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
 
 public class DatabaseController {
-    List<Object> users;
+    @Nullable
+    List<Resident> residents;
+    @Nullable
+    List<Intervenant> intervenants;
+    @Nullable
     List<Projet> projets;
+    @Nullable
     List<Requete> requetes;
-    List<Travail> travaux;
-    List<Entrave> entraves;
+    @Nullable
+    transient List<Travail> travaux;
+    @Nullable
+    transient List<Entrave> entraves;
 
-    public DatabaseController(List<Object> users, List<Projet> projets, List<Requete> requetes, List<Travail> travaux, List<Entrave> entraves) {
-        this.users = users;
+    public DatabaseController(@Nullable List<Resident> residents, @Nullable List<Intervenant> intervenants,@Nullable List<Projet> projets, @Nullable List<Requete> requetes, @Nullable List<Travail> travaux, @Nullable List<Entrave> entraves) {
+        this.residents = residents;
+        this.intervenants = intervenants;
         this.projets = projets;
         this.requetes = requetes;
         this.travaux = travaux;
@@ -16,8 +26,13 @@ public class DatabaseController {
     }
 
     public void consulterProjets() {
+        assert projets != null;
+        if (projets.isEmpty()){
+            System.out.print("Pas de travaux à venir \n");
+        }else{
         for(int i = 0; i < projets.size(); i++) {
             System.out.print(projets.get(i));
+        }
         }
     }
 
@@ -38,6 +53,8 @@ public class DatabaseController {
             travail = travaux.get(i);
             if(travail.getBoroughid().trim().toLowerCase().equals(quartier)){
                 System.out.println(travail);
+            } else if (i == travaux.size() - 1){
+                System.out.println("nom de quartier pas trouve ou mal ecrite");
             }
         }
     }
@@ -49,8 +66,22 @@ public class DatabaseController {
             if (entrave.getShortname().trim().toLowerCase().equals(rue)) {
                 System.out.println(entrave);
             }
+            else if (i == entraves.size() - 1){
+                System.out.println("nom de rue pas trouve ou mal ecrite");
+            }
         }
 
     }
 
+    @Override
+    public String toString() {
+        return "DatabaseController{" +
+                "residents=" + residents +
+                ", intervenants=" + intervenants +
+                ", projets=" + projets +
+                ", requetes=" + requetes +
+                ", travaux=" + travaux +
+                ", entraves=" + entraves +
+                '}';
     }
+}
