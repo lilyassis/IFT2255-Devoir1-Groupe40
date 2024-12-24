@@ -9,7 +9,7 @@ public class Requete {
     private WorkType TypeDeTravaux;
     private Boolean Open;
     @Nullable
-    transient private List<Candidature> candidatures;
+    private List<Candidature> candidatures;
 
 
     public Requete(String proprietaire, String titreDuTravail, String description, String dateDeDébut, WorkType typeDeTravaux, Boolean open) {
@@ -26,12 +26,12 @@ public class Requete {
     }
 
     public void addCandidature(@Nullable Candidature candidature) {
-        List<Candidature> candidatures = new ArrayList<>();
+        List<Candidature> candidatures = this.candidatures;
         candidatures.add(candidature);
         this.candidatures = candidatures;
     }
 
-    public void removeCandicature(Candidature candidature){
+    public void removeCandidature(Candidature candidature){
         this.candidatures.remove(candidature);
     }
 
@@ -49,6 +49,6 @@ public class Requete {
                 ", TypeDeTravaux=" + TypeDeTravaux +
                 ", Open=" + Open +
                 ", candidature=" + candidatures +
-                '}';
+                "}\n";
     }
 }

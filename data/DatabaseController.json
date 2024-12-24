@@ -1,0 +1,489 @@
+{
+  "residents": [
+    {
+      "dateNaissance": "Jan 23, 2003, 12:01:00 AM",
+      "Requete": {
+        "proprietaire": "bob",
+        "TitreDuTravail": "Construction d\u0027un immeuble résidentiel de 8 étages",
+        "Description": "Cette construction est un immeuble résidentiel de 8 étages situé dans un quartier central d\u0027une grande ville. Il comprend des appartements modernes allant de 40 à 90 m² avec des commerces au rez-de-chaussée.",
+        "DateDeDébut": "04/03/2022",
+        "TypeDeTravaux": "RESIDENTIEL",
+        "Open": true
+      },
+      "adresseRésidentielle": "2900 Edouard Montpetit Blvd",
+      "horaires": [
+        {
+          "jourDeLaSemaine": "LUNDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MARDI",
+          "heureDebut": "8:00",
+          "heureFin": "10:00"
+        },
+        {
+          "jourDeLaSemaine": "MERCREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "JEUDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "VENDREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "SAMEDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "DIMANCHE",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        }
+      ],
+      "nom": "bob",
+      "courriel": "bob@gmail.com",
+      "password": "123"
+    },
+    {
+      "dateNaissance": "Jan 23, 2003, 12:01:00 AM",
+      "Requete": {
+        "proprietaire": "Sophie",
+        "TitreDuTravail": "Construction d\u0027un centre commercial de trois niveaux",
+        "Description": "il s\u0027agit d\u0027un centre commercial moderne de trois niveaux situé en périphérie d\u0027une ville en expansion",
+        "DateDeDébut": "12/07/2023",
+        "TypeDeTravaux": "URBAIN",
+        "Open": true
+      },
+      "adresseRésidentielle": "2900 Edouard Montpetit Blvd",
+      "horaires": [
+        {
+          "jourDeLaSemaine": "LUNDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MARDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MERCREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "JEUDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "VENDREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "SAMEDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "DIMANCHE",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        }
+      ],
+      "nom": "Sophie",
+      "courriel": "sophie@gmail.com",
+      "password": "123"
+    },
+    {
+      "dateNaissance": "Jan 23, 2003, 12:01:00 AM",
+      "Requete": {
+        "proprietaire": "Emma",
+        "TitreDuTravail": "Rénovation d\u0027un entrepôt en espace mixte",
+        "Description": "transformation d’un ancien bâtiment industriel en un espace polyvalent comprenant des bureaux et des commerces",
+        "DateDeDébut": "02/04/2019",
+        "TypeDeTravaux": "RENOVATION",
+        "Open": true
+      },
+      "adresseRésidentielle": "2900 Edouard Montpetit Blvd",
+      "horaires": [
+        {
+          "jourDeLaSemaine": "LUNDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MARDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MERCREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "JEUDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "VENDREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "SAMEDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "DIMANCHE",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        }
+      ],
+      "nom": "Emma",
+      "courriel": "emma@gmail.com",
+      "password": "123"
+    },
+    {
+      "dateNaissance": "Jan 12, 2000, 12:01:00 AM",
+      "Requete": {
+        "proprietaire": "Jean",
+        "TitreDuTravail": "Entretien ponctuel d\u0027un espace vert communal",
+        "Description": "La commune cherche un prestataire pour effectuer un entretien ponctuel d\u0027un espace vert public de 1 000 m².",
+        "DateDeDébut": "12/02/2022",
+        "TypeDeTravaux": "ENTRETIEN_PAYS",
+        "Open": true
+      },
+      "adresseRésidentielle": "J4F3ER",
+      "horaires": [
+        {
+          "jourDeLaSemaine": "LUNDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MARDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MERCREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "JEUDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "VENDREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "SAMEDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "DIMANCHE",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        }
+      ],
+      "nom": "Jean",
+      "courriel": "jean@gmail.com",
+      "password": "123"
+    },
+    {
+      "dateNaissance": "Jan 14, 2001, 12:07:00 AM",
+      "Requete": {
+        "proprietaire": "Lucas",
+        "TitreDuTravail": "Nettoyage ponctuel d’un arrêt de transport en commun",
+        "Description": "La municipalité recherche un prestataire pour effectuer le nettoyage et l\u0027entretien d\u0027un arrêt de bus.",
+        "DateDeDébut": "28/0/2024",
+        "TypeDeTravaux": "TRANSPORT_COMMUN",
+        "Open": true
+      },
+      "adresseRésidentielle": "K3LR49",
+      "horaires": [
+        {
+          "jourDeLaSemaine": "LUNDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MARDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "MERCREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "JEUDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "VENDREDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "SAMEDI",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        },
+        {
+          "jourDeLaSemaine": "DIMANCHE",
+          "heureDebut": "Pas spécifié",
+          "heureFin": "Pas spécifié"
+        }
+      ],
+      "nom": "Lucas",
+      "courriel": "lucas@gmail.com",
+      "password": "123"
+    }
+  ],
+  "intervenants": [
+    {
+      "type": "PARTICULIER",
+      "Identifiant": 1,
+      "projets": [],
+      "candidatures": [],
+      "nom": "alice",
+      "courriel": "alice@gmail.com",
+      "password": "123"
+    },
+    {
+      "type": "PRIVE",
+      "Identifiant": 2,
+      "projets": [
+        {
+          "titre": "Aménagement d’un nouveau parc public",
+          "description": "Le projet consiste à aménager un parc public dans le quartier central pour améliorer la qualité de vie des résidents",
+          "typeTravaux": "EntretienUrbain",
+          "statutProjet": "Prévu",
+          "dateDebut": "Jan 7, 2023, 12:12:00 AM",
+          "dateFin": "Jan 10, 2023, 12:15:00 AM",
+          "quartierAffectés": {
+            "nom": "Ville-marie",
+            "codePostal": "0000"
+          }
+        },
+        {
+          "titre": "Installation de bornes de recharge pour véhicules électriques",
+          "description": "Le projet vise à installer des bornes de recharge pour véhicules électriques dans des zones stratégiques de la ville",
+          "typeTravaux": "TravauxLiesAuxTransportsEnCommun",
+          "statutProjet": "Prévu",
+          "dateDebut": "Jan 2, 2025, 12:12:00 AM",
+          "dateFin": "Jan 6, 2025, 12:15:00 AM",
+          "quartierAffectés": {
+            "nom": "Le Plateau-Mont-Royal",
+            "codePostal": "0000"
+          }
+        }
+      ],
+      "candidatures": [
+        {
+          "requete": "Construction d\u0027un centre commercial de trois niveaux"
+        }
+      ],
+      "nom": "angie",
+      "courriel": "angie@gmail.com",
+      "password": "123"
+    },
+    {
+      "type": "PARTICULIER",
+      "Identifiant": 3,
+      "projets": [
+        {
+          "titre": "Réhabilitation d\u0027une bibliothèque municipale",
+          "description": "Le projet consiste à moderniser une bibliothèque municipale pour attirer un plus large public et en faire un espace culturel polyvalent",
+          "typeTravaux": "ConstructionOuRenovation",
+          "statutProjet": "Prévu",
+          "dateDebut": "Jan 2, 2024, 12:19:00 AM",
+          "dateFin": "Jan 11, 2024, 12:15:00 AM",
+          "quartierAffectés": {
+            "nom": "Verdun/Montréal-Nord",
+            "codePostal": "0000"
+          }
+        }
+      ],
+      "candidatures": [
+        {
+          "requete": "Entretien ponctuel d\u0027un espace vert communal"
+        },
+        {
+          "requete": "Construction d\u0027un centre commercial de trois niveaux"
+        }
+      ],
+      "nom": "alex",
+      "courriel": "alex@gmail.com",
+      "password": "123"
+    },
+    {
+      "type": "PUBLIC",
+      "Identifiant": 4,
+      "projets": [
+        {
+          "titre": "Création d’une piste cyclable dans le centre-ville",
+          "description": "Ce projet vise à aménager une piste cyclable sécurisée sur 5 kilomètres dans le centre-ville pour promouvoir les déplacements doux et réduire l’utilisation des véhicules motorisés",
+          "typeTravaux": "TravauxLiesAuxTransportsEnCommun",
+          "statutProjet": "Prévu",
+          "dateDebut": "Jan 4, 2024, 12:22:00 AM",
+          "dateFin": "Jan 9, 2024, 12:11:00 AM",
+          "quartierAffectés": {
+            "nom": "centre-ville",
+            "codePostal": "0000"
+          }
+        }
+      ],
+      "candidatures": [
+        {
+          "requete": "Entretien ponctuel d\u0027un espace vert communal"
+        }
+      ],
+      "nom": "Marie",
+      "courriel": "marie@gmail.com",
+      "password": "123"
+    },
+    {
+      "type": "PRIVE",
+      "Identifiant": 5,
+      "projets": [],
+      "candidatures": [
+        {
+          "requete": "Construction d\u0027un centre commercial de trois niveaux"
+        }
+      ],
+      "nom": "alexia",
+      "courriel": "alexia@gmail.com",
+      "password": "123"
+    }
+  ],
+  "projets": [
+    {
+      "titre": "Aménagement d’un nouveau parc public",
+      "description": "Le projet consiste à aménager un parc public dans le quartier central pour améliorer la qualité de vie des résidents",
+      "typeTravaux": "EntretienUrbain",
+      "statutProjet": "Prévu",
+      "dateDebut": "Jan 7, 2023, 12:12:00 AM",
+      "dateFin": "Jan 10, 2023, 12:15:00 AM",
+      "quartierAffectés": {
+        "nom": "Ville-marie",
+        "codePostal": "0000"
+      }
+    },
+    {
+      "titre": "Installation de bornes de recharge pour véhicules électriques",
+      "description": "Le projet vise à installer des bornes de recharge pour véhicules électriques dans des zones stratégiques de la ville",
+      "typeTravaux": "TravauxLiesAuxTransportsEnCommun",
+      "statutProjet": "Prévu",
+      "dateDebut": "Jan 2, 2025, 12:12:00 AM",
+      "dateFin": "Jan 6, 2025, 12:15:00 AM",
+      "quartierAffectés": {
+        "nom": "Le Plateau-Mont-Royal",
+        "codePostal": "0000"
+      }
+    },
+    {
+      "titre": "Réhabilitation d\u0027une bibliothèque municipale",
+      "description": "Le projet consiste à moderniser une bibliothèque municipale pour attirer un plus large public et en faire un espace culturel polyvalent",
+      "typeTravaux": "ConstructionOuRenovation",
+      "statutProjet": "Prévu",
+      "dateDebut": "Jan 2, 2024, 12:19:00 AM",
+      "dateFin": "Jan 11, 2024, 12:15:00 AM",
+      "quartierAffectés": {
+        "nom": "Verdun/Montréal-Nord",
+        "codePostal": "0000"
+      }
+    },
+    {
+      "titre": "Création d’une piste cyclable dans le centre-ville",
+      "description": "Ce projet vise à aménager une piste cyclable sécurisée sur 5 kilomètres dans le centre-ville pour promouvoir les déplacements doux et réduire l’utilisation des véhicules motorisés",
+      "typeTravaux": "TravauxLiesAuxTransportsEnCommun",
+      "statutProjet": "Prévu",
+      "dateDebut": "Jan 4, 2024, 12:22:00 AM",
+      "dateFin": "Jan 9, 2024, 12:11:00 AM",
+      "quartierAffectés": {
+        "nom": "centre-ville",
+        "codePostal": "0000"
+      }
+    }
+  ],
+  "requetes": [
+    {
+      "proprietaire": "bob",
+      "TitreDuTravail": "Construction d\u0027un immeuble résidentiel de 8 étages",
+      "Description": "Cette construction est un immeuble résidentiel de 8 étages situé dans un quartier central d\u0027une grande ville. Il comprend des appartements modernes allant de 40 à 90 m² avec des commerces au rez-de-chaussée.",
+      "DateDeDébut": "04/03/2022",
+      "TypeDeTravaux": "RESIDENTIEL",
+      "Open": true
+    },
+    {
+      "proprietaire": "Sophie",
+      "TitreDuTravail": "Construction d\u0027un centre commercial de trois niveaux",
+      "Description": "il s\u0027agit d\u0027un centre commercial moderne de trois niveaux situé en périphérie d\u0027une ville en expansion",
+      "DateDeDébut": "12/07/2023",
+      "TypeDeTravaux": "URBAIN",
+      "Open": true,
+      "candidatures": [
+        {
+          "requete": "Construction d\u0027un centre commercial de trois niveaux"
+        },
+        {
+          "requete": "Construction d\u0027un centre commercial de trois niveaux"
+        }
+      ]
+    },
+    {
+      "proprietaire": "Emma",
+      "TitreDuTravail": "Rénovation d\u0027un entrepôt en espace mixte",
+      "Description": "transformation d’un ancien bâtiment industriel en un espace polyvalent comprenant des bureaux et des commerces",
+      "DateDeDébut": "02/04/2019",
+      "TypeDeTravaux": "RENOVATION",
+      "Open": true
+    },
+    {
+      "proprietaire": "Jean",
+      "TitreDuTravail": "Entretien ponctuel d\u0027un espace vert communal",
+      "Description": "La commune cherche un prestataire pour effectuer un entretien ponctuel d\u0027un espace vert public de 1 000 m².",
+      "DateDeDébut": "12/02/2022",
+      "TypeDeTravaux": "ENTRETIEN_PAYS",
+      "Open": true,
+      "candidatures": [
+        {
+          "requete": "Entretien ponctuel d\u0027un espace vert communal"
+        },
+        {
+          "requete": "Entretien ponctuel d\u0027un espace vert communal"
+        }
+      ]
+    },
+    {
+      "proprietaire": "Lucas",
+      "TitreDuTravail": "Nettoyage ponctuel d’un arrêt de transport en commun",
+      "Description": "La municipalité recherche un prestataire pour effectuer le nettoyage et l\u0027entretien d\u0027un arrêt de bus.",
+      "DateDeDébut": "28/0/2024",
+      "TypeDeTravaux": "TRANSPORT_COMMUN",
+      "Open": true
+    }
+  ]
+}

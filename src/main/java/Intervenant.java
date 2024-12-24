@@ -9,7 +9,7 @@ public class Intervenant extends User{
     @Nullable
     List<Projet> projets;
     @Nullable
-    transient List<Candidature> candidatures;
+    List<Candidature> candidatures;
 
     public int getIdentifiant() {
         return Identifiant;
@@ -27,14 +27,14 @@ public class Intervenant extends User{
         this.Identifiant = Identifiant;
     }
 
-    public void setProjet( Projet projet) {
-        List<Projet> projets = new ArrayList<>();
+    public void addProjet( Projet projet) {
+        List<Projet> projets = this.projets;
         projets.add(projet);
         this.projets = projets;
     }
 
     public void addCandicature( Candidature candidature) {
-        List<Candidature> candidatures = new ArrayList<>();
+        List<Candidature> candidatures = this.candidatures;
         candidatures.add(candidature);
         this.candidatures = candidatures;
     }
@@ -42,8 +42,9 @@ public class Intervenant extends User{
     public void removeCandicature(Candidature candidature){
         this.candidatures.remove(candidature);
     }
-
     public List<Candidature> getCandidatures() {
         return candidatures;
     }
+
+
 }

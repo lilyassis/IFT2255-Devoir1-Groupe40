@@ -1,20 +1,20 @@
 import org.jetbrains.annotations.Nullable;
 
 public class Candidature {
-    transient private Requete requete;
+    private String requete;
 
-    public Candidature(Requete requete) {
+    public Candidature(String requete) {
         this.requete = requete;
     }
 
-    public Requete getRequete() {
+    public String getRequete() {
         return requete;
     }
 
     @Override
     public String toString() {
         return "Candidature{" +
-                "requete=" + requete.getTitreDuTravail() +
+                "requete='" + requete + '\'' +
                 '}';
     }
 }

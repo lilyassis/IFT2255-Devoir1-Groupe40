@@ -1,18 +1,11 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-import java.lang.reflect.Type;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class main {
 
@@ -29,8 +22,11 @@ public class main {
 
         DatabaseController database = new DatabaseController(null,null,null,null,null,null);
 
-        try (FileReader reader = new FileReader("DatabaseController.json")) {
+        try (Reader reader = new FileReader("data/DatabaseController.json")) {
             database = gson.fromJson(reader, DatabaseController.class);
+        } catch (FileNotFoundException e) {
+            System.out.println("fichier pas trouver");
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -197,7 +193,7 @@ public class main {
                                             try {
                                                 Quartier quartier = new Quartier(inputs[5],"0000");
                                                 Projet projet = new Projet(inputs[0],inputs[1],TypeTravaux.valueOf(inputs[2]),df.parse(inputs[3].trim()),df.parse(inputs[4].trim()),quartier);
-                                                Intervenant.setProjet(projet);
+                                                Intervenant.addProjet(projet);
                                                 database.projets.add(projet);
                                             }catch (IllegalArgumentException e) {
                                                 System.out.println("type de travail n'est pas dans le bon format");
@@ -206,7 +202,7 @@ public class main {
                                             }
                                         }
                                     }else if ("3".equals(Input)) {
-                                        System.out.println(database.projets);
+                                        System.out.println(Intervenant.projets);
                                         System.out.println("Veuillez fournir le titre du projet a modifier:");
                                         Input = scanner.nextLine().trim();
                                         System.out.println("Veuillez fournir le nouveau statut (Prévu,EnCours,Suspendu,Terminé): ");
@@ -228,7 +224,7 @@ public class main {
                                         Input = scanner.nextLine().trim();
                                         for (Requete requete : database.requetes){
                                             if (Input.equals(requete.getTitreDuTravail())){
-                                                Candidature candidature = new Candidature(requete);
+                                                Candidature candidature = new Candidature(requete.getTitreDuTravail());
                                                 requete.addCandidature(candidature);
                                                 Intervenant.addCandicature(candidature);
                                                 System.out.println("Votre candidature a ete envoyee!");
@@ -239,13 +235,20 @@ public class main {
                                         System.out.println("Veuillez fournir le titre de la requete:");
                                         Input = scanner.nextLine().trim();
                                         try {
-                                        for (Candidature candidature : Intervenant.candidatures){
-                                            if (Input.equals(candidature.getRequete().getTitreDuTravail())){
-                                                candidature.getRequete().removeCandicature(candidature);
-                                                Intervenant.removeCandicature(candidature);
-                                                System.out.println("Votre candidature a ete soustraite!");
+                                            Iterator<Candidature> iterator = Intervenant.candidatures.iterator();
+                                            while (iterator.hasNext()) {
+                                                Candidature candidature = iterator.next();
+                                                if (Input.equals(candidature.getRequete())) {
+                                                    for (Requete requete : database.requetes) {
+                                                        if (Input.equals(requete.getTitreDuTravail())) {
+                                                            requete.removeCandidature(candidature);
+                                                            iterator.remove();
+                                                            System.out.println("Votre candidature a ete soustraite!");
+                                                        }
+                                                    }
+                                                }
                                             }
-                                        }}catch (NullPointerException e){
+                                        }catch (NullPointerException e){
                                             System.out.println("pas de candidatures");
                                         }
                                     }else if ("6".equals(Input)) {
@@ -303,10 +306,11 @@ public class main {
         }
         scanner.close();
         Gson gsonn = new GsonBuilder().setPrettyPrinting().create();
-        try (FileWriter writer = new FileWriter("DatabaseController.json")) {
+        try (FileWriter writer = new FileWriter("data/DatabaseController.json")) {
             gsonn.toJson(database, writer);
             System.out.println("DatabaseController saved to JSON.");
         } catch (IOException e) {
+            System.err.println("Error saving the DatabaseController to JSON: " + e.getMessage());
             e.printStackTrace();
         }
     }

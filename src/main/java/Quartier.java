@@ -10,13 +10,10 @@ public class Quartier {
         this.codePostal = codePostal;
     }
 
-    // Méthodes
-    public String afficherDetails() {
-        return "Quartier: " + nom + ", Code Postal: " + codePostal;
-    }
-
-    public List<Projet> afficherProjets() {
-        // Retourner les projets associés au quartier
-        return null; // À implémenter selon le besoin
+    @Override
+    public String toString() {
+        return "Quartier{" +
+                "nom='" + nom + '\'' +
+                '}';
     }
 }
