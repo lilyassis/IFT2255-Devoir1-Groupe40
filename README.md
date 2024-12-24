@@ -43,7 +43,7 @@ par les travaux.
 Pour installer MaVille, assurez-vous que Java JDK 11+ et Maven sont installés. Clonez le dépôt avec git clone, naviguez dans le répertoire du projet, et exécutez "mvn clean install" pour compiler le projet et installer les dépendances.
 
 ## Instructions pour exécuter l'application
-Après l'installation, pour lancer MaVille, ouvrez un terminal dans le répertoire racine et exécutez "java -jar target/MaVille.jar". 
+Après l'installation, pour lancer MaVille, ouvrez un terminal dans le répertoire racine et exécutez "java -jar MaVille.jar" et s'assurer que vous etes dans /application pour etre capable de lire le fichier json qui contient tout le data de l'application.  
 
 ## Instructions pour exécuter les tests
 Pour exécuter les tests unitaires, ouvrez un terminal dans le répertoire racine et lancez "mvn test". 
